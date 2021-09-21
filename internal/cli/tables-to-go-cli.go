@@ -189,7 +189,7 @@ func generateImports(content *strings.Builder, settings *settings.Settings, db d
 
 	content.WriteString("import (\n")
 
-	if columnInfo.isNullablePrimitive && settings.IsNullTypeSQL() {
+	if columnInfo.isNullablePrimitive || settings.IsNullTypeSQL() {
 		content.WriteString("\t\"database/sql\"\n")
 	}
 
