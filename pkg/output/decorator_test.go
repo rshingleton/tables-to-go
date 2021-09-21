@@ -52,13 +52,13 @@ func TestImportDecorator_Decorate(t *testing.T) {
 		isError  assert.ErrorAssertionFunc
 	}{
 		{
-			desc:     "well formed golang code with inport-statement should get decorated",
+			desc:     "well formed golang code with import-statement should get decorated",
 			input:    "package dto\n\nimport ()\n\ntype Bar struct {\nID int `db:\"id\"`\n}",
 			expected: "package dto\n\ntype Bar struct {\nID int `db:\"id\"`\n}",
 			isError:  assert.NoError,
 		},
 		{
-			desc:     "well formed golang code without inport-statement should stay unchanged",
+			desc:     "well formed golang code without import-statement should stay unchanged",
 			input:    "package dto\n\ntype Bar struct {\nID int `db:\"id\"`\n}",
 			expected: "package dto\n\ntype Bar struct {\nID int `db:\"id\"`\n}",
 			isError:  assert.NoError,
